@@ -5,24 +5,22 @@ jQuery(document).ready(function ($) {
 
     if (submenu.is(":visible")) {
       // if submenu is visible, hide it
-      if (window.innerWidth <= 768) {
-        submenu.animate({ left: "-100%" }, 200); // slide to the left on mobile
-      } else {
-        submenu
-          .stop(true, true)
-          .slideUp(200)
-          .fadeOut({ queue: false, duration: "slow" });
-      }
+      submenu
+        .stop(true, true)
+        .slideUp(200)
+        .fadeOut({ queue: false, duration: "slow" });
     } else {
-      // if submenu is hidden, show it
-      if (window.innerWidth <= 768) {
-        submenu.css({ left: "-100%" }).show().animate({ left: "0" }, 200); // slide from the left on mobile
-      } else {
-        submenu
-          .stop(true, true)
-          .slideDown(200)
-          .fadeIn({ queue: false, duration: "slow" });
-      }
+      // hide other mega menus
+      $(".mega-menu-content")
+        .stop(true, true)
+        .slideUp(200)
+        .fadeOut({ queue: false, duration: "slow" });
+
+      // show current submenu
+      submenu
+        .stop(true, true)
+        .slideDown(200)
+        .fadeIn({ queue: false, duration: "slow" });
     }
   });
 
@@ -32,14 +30,10 @@ jQuery(document).ready(function ($) {
       $(".mega-menu-content").is(":visible") &&
       !$(e.target).closest(".menu-item").length
     ) {
-      if (window.innerWidth <= 768) {
-        $(".mega-menu-content").animate({ left: "-100%" }, 200); // slide to the left on mobile
-      } else {
-        $(".mega-menu-content")
-          .stop(true, true)
-          .slideUp(200)
-          .fadeOut({ queue: false, duration: "slow" });
-      }
+      $(".mega-menu-content")
+        .stop(true, true)
+        .slideUp(200)
+        .fadeOut({ queue: false, duration: "slow" });
     }
   });
 });
