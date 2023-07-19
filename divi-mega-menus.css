@@ -1,0 +1,8 @@
+.mega-menu-content {
+    display: none;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    left: 0;
+    /* Add more styles as needed */
+}
